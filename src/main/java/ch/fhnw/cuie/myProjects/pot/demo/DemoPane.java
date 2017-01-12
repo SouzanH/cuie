@@ -23,10 +23,8 @@ public class DemoPane extends BorderPane {
     private TextField   titleField;
     private TextField   heightField;
     private CheckBox circleAnimationRunningBox;
-    private Slider      pulseSlider;
     private ColorPicker colorPicker;
     private CheckBox  isAnimated;
-    private ListView buildingsList;
 
     public DemoPane() {
         initializeControls();
@@ -50,23 +48,13 @@ public class DemoPane extends BorderPane {
         circleAnimationRunningBox = new CheckBox("Circle animation running");
         circleAnimationRunningBox.setSelected(true);
 
-        pulseSlider = new Slider(0.5, 2.0, 1.0);
-        pulseSlider.setShowTickLabels(true);
-        pulseSlider.setShowTickMarks(true);
-
         colorPicker = new ColorPicker();
 
-        buildingsList = new ListView();
-        for(int i = 0; i < customControl.getBuildings().size(); i++)
-        {
-            buildingsList.getItems().add(customControl.getBuildings().get(i).getBuilding());
-        }
-        buildingsList.setPrefHeight(customControl.getBuildings().size() * 24);
     }
 
     private void layoutControls() {
         setCenter(customControl);
-        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, pulseSlider, colorPicker, new Label("Choose building to compare:"), buildingsList);
+        VBox box = new VBox(10, new Label("Control Properties"), titleField, heightField, isAnimated, circleAnimationRunningBox, colorPicker);
         box.setPadding(new Insets(10));
         box.setSpacing(10);
         setRight(box);
@@ -85,8 +73,6 @@ public class DemoPane extends BorderPane {
         isAnimated.selectedProperty().bindBidirectional(customControl.animatedProperty());
 
         customControl.circleAnimationIsRunningProperty().bindBidirectional(circleAnimationRunningBox.selectedProperty());
-        customControl.pulseProperty().bind(Bindings.createObjectBinding(() -> Duration.seconds(pulseSlider.getValue()), pulseSlider.valueProperty()));
-
         colorPicker.valueProperty().bindBidirectional(customControl.baseColorProperty());
     }
 
