@@ -254,6 +254,7 @@ public class PotHeightControl extends Region {
         buildingsListB1.setPrefHeight(4 * 24);
         popupB1 = new Popup();
         popupB1.getContent().addAll(buildingsListB1);
+        indexB1=1;
 
 
         buildingsListB2 = new ListView();
@@ -264,6 +265,7 @@ public class PotHeightControl extends Region {
         buildingsListB2.setPrefHeight(4 * 24);
         popupB2 = new Popup();
         popupB2.getContent().addAll(buildingsListB2);
+        indexB2=2;
 
 
         buildingsListB3 = new ListView();
@@ -274,6 +276,7 @@ public class PotHeightControl extends Region {
         buildingsListB3.setPrefHeight(4 * 24);
         popupB3 = new Popup();
         popupB3.getContent().addAll(buildingsListB3);
+        indexB3=3;
 
 
         buildingsListB4 = new ListView();
@@ -284,6 +287,7 @@ public class PotHeightControl extends Region {
         buildingsListB4.setPrefHeight(4 * 24);
         popupB4 = new Popup();
         popupB4.getContent().addAll(buildingsListB4);
+        indexB4=4;
 
 
         // always needed
@@ -373,7 +377,7 @@ public class PotHeightControl extends Region {
         heightCircleB1.setOnMouseEntered(event -> {
             heightCircleB1.setRadius(10.0);
             heightCircleB1.setFill(Color.LIGHTPINK);
-            labelB1B2.setText(buildings.get(1).getBuilding() + ": " + buildings.get(1).getHeight_m() + " m");
+            labelB1B2.setText(buildings.get(indexB1).getBuilding() + ": " + buildings.get(indexB1).getHeight_m() + " m");
         });
 
         heightCircleB1.setOnMouseExited(event -> {
@@ -386,7 +390,7 @@ public class PotHeightControl extends Region {
         heightCircleB2.setOnMouseEntered(event -> {
             heightCircleB2.setRadius(10.0);
             heightCircleB2.setFill(Color.LIGHTPINK);
-            labelB1B2.setText(buildings.get(2).getBuilding() + ": " + buildings.get(2).getHeight_m() + " m");
+            labelB1B2.setText(buildings.get(indexB2).getBuilding() + ": " + buildings.get(indexB2).getHeight_m() + " m");
         });
 
         heightCircleB2.setOnMouseExited(event -> {
@@ -399,7 +403,7 @@ public class PotHeightControl extends Region {
         heightCircleB3.setOnMouseEntered(event -> {
             heightCircleB3.setRadius(10.0);
             heightCircleB3.setFill(Color.LIGHTPINK);
-            labelB3B4.setText(buildings.get(3).getBuilding() + ": " + buildings.get(3).getHeight_m() + " m");
+            labelB3B4.setText(buildings.get(indexB3).getBuilding() + ": " + buildings.get(indexB3).getHeight_m() + " m");
         });
 
         heightCircleB3.setOnMouseExited(event -> {
@@ -412,7 +416,7 @@ public class PotHeightControl extends Region {
         heightCircleB4.setOnMouseEntered(event -> {
             heightCircleB4.setRadius(10.0);
             heightCircleB4.setFill(Color.LIGHTPINK);
-            labelB3B4.setText(buildings.get(4).getBuilding() + ": " + buildings.get(4).getHeight_m() + " m");
+            labelB3B4.setText(buildings.get(indexB4).getBuilding() + ": " + buildings.get(indexB4).getHeight_m() + " m");
         });
 
         heightCircleB4.setOnMouseExited(event -> {
