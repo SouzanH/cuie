@@ -196,7 +196,7 @@ public class PotHeightControl extends Region {
         heightLabelBox.getChildren().add(heightLabel);
         heightLabel.textProperty().addListener((observable, oldValue, newValue) ->
                 heightLabel.setText(newValue.matches
-                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001)&& newValue.length() < 6 ? newValue : oldValue)
+                        ("^[0-9]*\\.?[0-9]*$") && (Double.parseDouble(newValue) < 1001)&& newValue.length() < 7 ? newValue : oldValue)
         );
 
 
